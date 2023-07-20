@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 word = "Holberton"
 slice(word)
 first_3_letters = word[:3]
