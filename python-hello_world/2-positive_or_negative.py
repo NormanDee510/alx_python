@@ -1,5 +1,5 @@
 import random
-number = random.randint(-10, 10)
+number = random.randint(-100, 100)
 print("The number:", number)
 
 # Check if the number is positive, zero, or negative and print the result
