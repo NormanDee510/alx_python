@@ -4,10 +4,14 @@ number = random.randint(-10000, 10000)  # Generate a random signed number betwee
 
 last_digit = abs(number) % 10
 is_greater_than_5 = last_digit > 5
+is_zero = last_digit == 0
+
+if number < 0:
+    last_digit = -last_digit
 
 print(f"Last digit of {number} is {last_digit} and is", end=" ")
 
-if last_digit == 0:
+if is_zero:
     print("0")
 elif is_greater_than_5:
     print("greater than 5")
