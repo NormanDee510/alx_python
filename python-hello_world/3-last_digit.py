@@ -1,13 +1,12 @@
-#!/usr/bin/python3
 import random
-number = random.randint(-10000, 10000)
-# Print the random number
-#print("The number:", number)
 
-# Check if the number is positive, zero, or negative and print the result
-if number > 0:
-    print("is positive")
-elif number == 0:
-    print("is zero")
+number = random.randint(-10000, 10000)  # Generate a random signed number between -10000 and 10000
+
+print(f"Last digit of {number} is {abs(number) % 10}", end=" ")
+
+if abs(number) % 10 > 5:
+    print("and is greater than 5")
+elif abs(number) % 10 == 0:
+    print("and is 0")
 else:
-    print("is negative")
+    print("and is less than 6 and not 0")
