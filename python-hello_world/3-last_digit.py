@@ -2,11 +2,14 @@ import random
 
 number = random.randint(-10000, 10000)  # Generate a random signed number between -10000 and 10000
 
-print(f"Last digit of {number} is {abs(number) % 10}", end=" ")
+last_digit = abs(number) % 10
+is_greater_than_5 = last_digit > 5
 
-if abs(number) % 10 > 5:
-    print("and is greater than 5")
-elif abs(number) % 10 == 0:
-    print("and is 0")
+print(f"Last digit of {number} is {last_digit} and is", end=" ")
+
+if last_digit == 0:
+    print("0")
+elif is_greater_than_5:
+    print("greater than 5")
 else:
-    print("and is less than 6 and not 0")
+    print("less than 6 and not 0")
