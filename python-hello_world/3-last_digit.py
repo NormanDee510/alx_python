@@ -1,6 +1,8 @@
+#!/usr/bin/python3
 import random
-number = random.randint(-10, 10)
- #print("The number:", number)
+number = random.randint(-10000, 10000)
+# Print the random number
+print("The number:", number)
 
 # Check if the number is positive, zero, or negative and print the result
 if number > 0:
