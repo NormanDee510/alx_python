@@ -1,5 +1,6 @@
-def add(a, b):
-    return a + b
+if __name__ == "__main__":
+    def add(a, b):
+        return a + b
 
 # Assign values to variables a and b
 a = 1
