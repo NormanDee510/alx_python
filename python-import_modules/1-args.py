@@ -3,12 +3,11 @@ from sys import argv
 
 def main():
     args = argv[1:]
-    num_args = len(args)
 
-    if num_args == 0:
+    if not args:
         print("0 arguments.")
     else:
-        print("{} argument{}:".format(num_args, "s" if num_args > 1 else ""))
+        print("{} argument{}:".format(len(args), "s" if len(args) > 1 else ""))
         for i, arg in enumerate(args, start=1):
             print("{}: {}".format(i, arg))
 
