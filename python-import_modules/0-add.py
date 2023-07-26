@@ -1,13 +1,6 @@
 from add_0 import add
 
-def main():
-    
-    a = 1
-    b = 2
-  
-    result = add(a, b)
-    
-    print("FAKE add() => {} - {}".format(a, b))
+a = 1
+b = 2
 
-if __name__ == "__main__":
-    main()
+print("{} + {} = {}".format(a, b, add(a, b)))
