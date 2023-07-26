@@ -5,7 +5,7 @@ def main():
     a = 1
     b = 2
   
-    return (a+b)
+    result = add(a, b)
     
     print("FAKE add() => {} - {}".format(a, b))
 
