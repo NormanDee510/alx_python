@@ -1,9 +1,15 @@
-class Square:
-    def __init__(self, size):
-        """
-        Initialize the Square instance with a given size.
+#!/usr/bin/python3
+"""Square module.
 
-        Args:
-            size (int): The size of the square.
-        """
+defines and assigns value fro parameter
+
+"""
+
+
+class Square:
+
+    """defines a Square class"""
+
+    def __init__(self, size):
+        """instantation of private attribute size"""
         self.__size = size
