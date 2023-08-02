@@ -1,3 +1,9 @@
+  #!/usr/bin/python3
+"""Square module.
+
+defines and assigns value for parameter
+
+"""
 class Square:
     """Defines a square by its size.
 
