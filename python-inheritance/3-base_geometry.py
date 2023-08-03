@@ -5,15 +5,9 @@ defines and assigns value for parameter
 
 """
 class BaseGeometry:
-    """ My BaseGeometry class. """
+    """Empty class"""
+
     pass
-
-bg = BaseGeometry()
-print(bg)
-
-print(dir(bg))
-
-print(dir(BaseGeometry))
 
 
 
