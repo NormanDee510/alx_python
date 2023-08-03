@@ -5,9 +5,15 @@ defines and assigns value for parameter
 
 """
 class BaseGeometry:
-    """Empty class"""
+    def __init__(self):
+        pass
 
-    pass
+    def area(self):
+        pass
+
+    def perimeter(self):
+        pass
+    
 
 
 
