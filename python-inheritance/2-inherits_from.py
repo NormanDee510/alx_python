@@ -2,6 +2,7 @@
 """
 python inheritance.
 defines and assigns value for parameter
+
 """
 
 def inherits_from(obj, a_class):
