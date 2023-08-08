@@ -4,6 +4,7 @@ python inheritance.
 defines and assigns value for parameter
 
 """
+
 def inherits_from(obj, a_class):
     """Determines if obj is an instance of a class that
     inherited from a_class
@@ -14,12 +15,4 @@ def inherits_from(obj, a_class):
 
     Returns: True or False
     """
-
     return isinstance(obj, a_class) and type(obj) != a_class
-
-
-
-
-
-
-
