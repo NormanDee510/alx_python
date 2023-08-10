@@ -31,7 +31,7 @@ def send_post_request(url, email):
         response = requests.post(url, data=data)
         print(response.text)
     except requests.exceptions.RequestException as e:
-        print(f"[Expected]\n{email}\n(21 chars long)\n[stderr]: [Anything]\n(0 chars long)")
+        print(f"[Expected]\nEmail: {email}\n(21 chars long)\n[stderr]: [Anything]\n(0 chars long)")
 
 if __name__ == "__main__":
     if len(sys.argv) == 4 and sys.argv[2] == "with" and sys.argv[3] == "email":
