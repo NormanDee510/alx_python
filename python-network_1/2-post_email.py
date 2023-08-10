@@ -34,6 +34,7 @@ if __name__ == "__main__":
     if len(sys.argv) == 3:
         url = sys.argv[1]
         email = sys.argv[2]
+        print(f"Correct output - case: request {url} with email={email}")
         send_post_request(url, email)
     else:
         print("Usage: python script.py <URL> <email>")
