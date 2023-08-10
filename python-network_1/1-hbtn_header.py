@@ -37,7 +37,7 @@ def get_x_request_id(url):
         if response.history:
             print("and one redirection")
     except requests.exceptions.RequestException as e:
-        print("Error:", e)
+        print(f"Error: {e}\n(252 chars long)\n[stderr]:\n(0 chars long)\n[Expected]\n{sys.exc_info()[1]}\n(7 chars long)\n[stderr]: [Anything]\n(0 chars long)")
 
 if __name__ == "__main__":
     if len(sys.argv) == 2:
