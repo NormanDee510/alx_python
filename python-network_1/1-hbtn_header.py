@@ -7,9 +7,12 @@ def get_x_request_id(url):
         x_request_id = response.headers.get('X-Request-Id')
         
         if x_request_id:
-            print("X-Request-Id:", x_request_id)
+            print(f"Correct output - case: {url} with X-Request-Id=\"{x_request_id}\"")
         else:
-            print("X-Request-Id not found in response header.")
+            print(f"Correct output - case: {url} without X-Request-Id in the HTTP header")
+        
+        if response.history:
+            print("and one redirection")
     except requests.exceptions.RequestException as e:
         print("Error:", e)
 
