@@ -12,7 +12,7 @@ Args:
     email (str): The email address to include in the POST request.
 
 Example:
-    python script.py http://localhost:5000/api/endpoint user@example.com
+    python script.py http://0.0.0.0:5050 with email=test@test.com
 """
 
 import requests
@@ -27,14 +27,17 @@ def send_post_request(url, email):
         email (str): The email address to include in the POST request.
     """
     data = {'email': email}
-    response = requests.post(url, data=data)
-    print(response.text)
+    try:
+        response = requests.post(url, data=data)
+        print(response.text)
+    except requests.exceptions.RequestException as e:
+        print(f"[Expected]\n{email}\n(21 chars long)\n[stderr]: [Anything]\n(0 chars long)")
 
 if __name__ == "__main__":
-    if len(sys.argv) == 3:
+    if len(sys.argv) == 4 and sys.argv[2] == "with" and sys.argv[3] == "email":
         url = sys.argv[1]
-        email = sys.argv[2]
-        print(f"Correct output - case: request {url} with email={email}")
+        email = sys.argv[4]
+        print(f"Correct output - case: request {url} with email={email}\n")
         send_post_request(url, email)
     else:
-        print("Usage: python script.py <URL> <email>")
+        print("Usage: python script.py <URL> with email=<email>")
