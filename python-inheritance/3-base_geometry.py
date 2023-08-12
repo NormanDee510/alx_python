@@ -1,3 +1,9 @@
+#!/usr/bin/python3
+"""
+python inheritance.
+defines and assigns value for parameter
+
+"""
 class GeometryMetaClass(type):
     """
     Overides the dir init subclass in the class
