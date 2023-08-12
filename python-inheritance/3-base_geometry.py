@@ -19,4 +19,4 @@ class BaseGeometry(metaclass=GeometryMetaClass):
     """
 
     def __dir__(cls):
-        return [attribute for attribute in super().dir() if attribute != 'init_subclass']
+        return [attribute for attribute in super().__dir__() if attribute != 'init_subclass']
