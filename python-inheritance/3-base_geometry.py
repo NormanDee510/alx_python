@@ -8,6 +8,7 @@ class GeometryMetaClass(type):
     """
     Overides the dir init subclass in the class
     """
+
     def __dir__(cls):
         """ Method that overide default dir"""
         return (attribute for attribute in super().__dir__() if attribute != 'init_subclass')
@@ -19,4 +20,4 @@ class BaseGeometry(metaclass=GeometryMetaClass):
     """
 
     def __dir__(cls):
-        return [attribute for attribute in super().__dir__() if attribute != 'init_subclass']
+        return (attribute for attribute in super().__dir__() if attribute != 'init_subclass')
