@@ -18,23 +18,26 @@ Example:
 import requests
 import sys
 
-def fetch_and_display_response(url):
-    """
-    Send a request to a URL, display response body, and handle error codes.
-
-    Args:
-        url (str): The URL to send the request to.
-    """
-    response = requests.get(url)
-    if response.status_code >= 400:
-        print(f"Error code: {response.status_code}")
-    else:
-        print(response.text)
+def search_user_by_letter(letter):
+    base_url = "http://0.0.0.0:5000/search_user"
+    payload = {'q': letter}
+    
+    response = requests.post(base_url, data=payload)
+    
+    try:
+        response_json = response.json()
+        if response_json and 'id' in response_json and 'name' in response_json:
+            print(f"[{response_json['id']}] {response_json['name']}")
+        else:
+            print("No result")
+    except ValueError:
+        print("Not a valid JSON")
 
 if __name__ == "__main__":
     if len(sys.argv) == 2:
-        url = sys.argv[1]
-        fetch_and_display_response(url)
+        letter = sys.argv[1]
     else:
-        print("Usage: python script.py <URL>")
+        letter = ""
+    
+    search_user_by_letter(letter)
         
