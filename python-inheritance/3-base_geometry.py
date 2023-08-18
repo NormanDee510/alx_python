@@ -4,7 +4,7 @@ python inheritance.
 defines and assigns value for parameter
 
 """
-class GeometryMetaClass(type):
+class MetaClassGeometry(type):
     """
     Overides the dir init subclass in the class
     """
@@ -14,7 +14,7 @@ class GeometryMetaClass(type):
         return (attribute for attribute in super().__dir__() if attribute != 'init_subclass')
 
 
-class BaseGeometry(metaclass=GeometryMetaClass):
+class BaseGeometry(metaclass=MetaClassGeometry):
     """
     defines and assigns value for parameter
     """
