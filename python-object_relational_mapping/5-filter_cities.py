@@ -51,6 +51,6 @@ if __name__ == "__main__":
     password = sys.argv[2]
     database = sys.argv[3]
     state_name = sys.argv[4]
-    
+
     # Call the function to filter and display cities by state
     filter_cities_by_state(username, password, database, state_name)
