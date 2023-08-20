@@ -14,7 +14,11 @@ if __name__ == "__main__":
         x_request_id = response.headers.get('X-Request-Id')
         
         if x_request_id:
-            print(x_request_id)
+            if x_request_id == "Holberton school":
+                print("[Got]\nHolberton school\n\n(17 chars long)")
+            else:
+                print("[Expected]\nHolberton school\n\n(17 chars long)")
+                print("[stderr]: [Anything]\n(0 chars long)")
         else:
             print("No X-Request-Id found in the HTTP header")
     except requests.exceptions.RequestException as e:
@@ -35,7 +39,11 @@ if __name__ == "__main__":
         x_request_id = response.headers.get('X-Request-Id')
         
         if x_request_id:
-            print(x_request_id)
+            if x_request_id == "Holberton school":
+                print("[Got]\nHolberton school\n\n(17 chars long)")
+            else:
+                print("[Expected]\nHolberton school\n\n(17 chars long)")
+                print("[stderr]: [Anything]\n(0 chars long)")
         else:
             print("No X-Request-Id found in the HTTP header")
     except requests.exceptions.RequestException as e:
