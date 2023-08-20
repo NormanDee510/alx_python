@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 import sys
 import MySQLdb
+"""
+A script that take 3 arguments: mysql username, mysql password and database name
+"""
 
 def get_states(username, password, database):
     # Connect to the MySQL server
