@@ -25,11 +25,11 @@ if __name__ == "__main__":
     # Create a session
     Session = sessionmaker(bind=engine)
     session = Session()
-    
+
     # Query and display State objects
     states = session.query(State).order_by(State.id).all()
     for state in states:
         print("{}: {}".format(state.id, state.name))
-    
-    # Close the session
+
+        # Close the session
     session.close()
