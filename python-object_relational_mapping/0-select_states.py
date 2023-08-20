@@ -6,6 +6,7 @@ import MySQLdb
 A script that takes 3 arguments: mysql username, mysql password, and database name.
 """
 
+
 def get_states(username, password, database):
     # Connect to the MySQL server
     db = MySQLdb.connect(
