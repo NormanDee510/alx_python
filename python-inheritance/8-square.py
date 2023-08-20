@@ -4,6 +4,8 @@
 defines and assigns value for parameter
 
 """
+
+
 class BaseGeometry:
     """ My BaseGeometry class. """
 
@@ -67,3 +69,4 @@ class Square(Rectangle):
     def __str__(self):
         """Returns a string representation of the Square."""
         return f"[Square] {self._Rectangle__width}/{self._Rectangle__height}"
+    
