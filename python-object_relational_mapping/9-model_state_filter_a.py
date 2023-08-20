@@ -27,7 +27,9 @@ if __name__ == "__main__":
     session = Session()
 
     # Query and display State objects containing the letter "a"
-    states_with_a = session.query(State).filter(State.name.like('%a%')).order_by(State.id).all()
+    states_with_a = session.query(State).filter(
+        State.name.like('%a%')
+        ).order_by(State.id).all()
     for state in states_with_a:
         print("{}: {}".format(state.id, state.name))
 
