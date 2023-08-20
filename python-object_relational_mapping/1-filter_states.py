@@ -11,7 +11,6 @@ def filter_states(username, password, database):
         passwd=password,
         db=database
     )
-    # Create a cursor
     cursor = db.cursor()
 
     # Execute the query to retrieve states starting with 'N'
@@ -20,20 +19,17 @@ def filter_states(username, password, database):
         "ORDER BY id ASC"
     )
 
-    # Fetch all the results
     results = cursor.fetchall()
 
     # Print the results
     for row in results:
         print(row)
 
-    # Close the cursor and connection
     cursor.close()
     db.close()
 
 
 if __name__ == "__main__":
-    # Check for correct number of arguments
     if len(sys.argv) != 4:
         print("Usage: {} <username> <password> <database>".format(sys.argv[0]))
         sys.exit(1)
