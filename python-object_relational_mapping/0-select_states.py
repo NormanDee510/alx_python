@@ -3,14 +3,16 @@ import sys
 import MySQLdb
 
 """
-A script that takes 3 arguments: mysql username, mysql password, and database name.
+A script that takes 3 arguments: mysql username,
+ mysql password, and database name.
 """
 
 
 def get_states(username, password, database):
     # Connect to the MySQL server
     db = MySQLdb.connect(
-        host="localhost", port=3306, user=username, passwd=password, db=database
+        host="localhost", port=3306, user=username,
+        passwd=password, db=database
     )
 
     # Create a cursor
