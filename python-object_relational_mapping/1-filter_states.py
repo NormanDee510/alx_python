@@ -11,7 +11,8 @@ def filter_states(username, password, database):
     cursor = db.cursor()
 
     # Execute the query to retrieve states starting with 'N'
-    cursor.execute("SELECT * FROM states WHERE LOWER(name) LIKE 'n%' ORDER BY id ASC")
+    cursor.execute("SELECT * FROM states WHERE LOWER(name)"
+                   "LIKE 'n%' ORDER BY id ASC")
 
     # Fetch all the results
     results = cursor.fetchall()
@@ -28,7 +29,7 @@ if __name__ == "__main__":
     # Check for correct number of arguments
     if len(sys.argv) != 4:
         print("Usage: {} <username> <password>"
-             "<database>".format(sys.argv[0]))
+              "<database>".format(sys.argv[0]))
         sys.exit(1)
 
     username = sys.argv[1]
