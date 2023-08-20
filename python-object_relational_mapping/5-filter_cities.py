@@ -43,7 +43,8 @@ def filter_cities_by_state(username, password, database, state_name):
 if __name__ == "__main__":
     # Check for correct number of arguments
     if len(sys.argv) != 5:
-        print("Usage: {} <username> <password> <database> <state_name>".format(sys.argv[0]))
+        print("Usage: {} <username> <password>"
+              "<database> <state_name>".format(sys.argv[0]))
         sys.exit(1)
 
     username = sys.argv[1]
@@ -53,4 +54,3 @@ if __name__ == "__main__":
     
     # Call the function to filter and display cities by state
     filter_cities_by_state(username, password, database, state_name)
-    
