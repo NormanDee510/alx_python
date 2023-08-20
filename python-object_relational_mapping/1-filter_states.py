@@ -2,18 +2,16 @@
 import sys
 import MySQLdb
 
-
 def filter_states(username, password, database):
     # Connect to the MySQL server
-    db = MySQLdb.connect(host="localhost", port=3306, user=username,
-                          passwd=password, db=database)
+    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
 
     # Create a cursor
     cursor = db.cursor()
 
     # Execute the query to retrieve states starting with 'N'
     cursor.execute("SELECT * FROM states WHERE LOWER(name)"
-                   "LIKE 'N%' ORDER BY id ASC")
+                   "LIKE 'n%' ORDER BY id ASC")
 
     # Fetch all the results
     results = cursor.fetchall()
