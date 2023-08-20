@@ -10,7 +10,7 @@ def filter_states(username, password, database):
     cursor = db.cursor()
 
     # Execute the query to retrieve states starting with 'N'
-    cursor.execute("SELECT * FROM states WHERE LOWER(name) LIKE 'n%' ORDER BY id ASC")
+    cursor.execute("SELECT * FROM states WHERE LOWER(name) LIKE 'N%' ORDER BY id ASC")
 
     # Fetch all the results
     results = cursor.fetchall()
