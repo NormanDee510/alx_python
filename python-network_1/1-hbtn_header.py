@@ -1,47 +1,42 @@
+#!/usr/bin/env python3
 """
-Fetch X-Request-Id from HTTP response header and display results.
-
-This script takes a URL as input, sends a GET request to the URL, and displays
-the value of the 'X-Request-Id' variable in the response header. It also
-provides additional information based on the response and any redirections.
-
-Usage:
-    python script.py <URL>
-
-Args:
-    URL (str): The URL to send the GET request to.
-
-Example:
-    python script.py http://0.0.0.0:5050
+Send a GET request to a URL and display the value of X-Request-Id in the response header.
 """
 
 import requests
 import sys
 
-def get_x_request_id(url):
-    """
-    Fetch X-Request-Id from the response header and display results.
+if __name__ == "__main__":
+    url = sys.argv[1]
 
-    Args:
-        url (str): The URL to send the GET request to.
-    """
     try:
         response = requests.get(url)
         x_request_id = response.headers.get('X-Request-Id')
         
         if x_request_id:
-            print(f"Correct output - case: {url} with X-Request-Id=\"{x_request_id}\"")
+            print(x_request_id)
         else:
-            print(f"Correct output - case: {url} without X-Request-Id in the HTTP header")
-        
-        if response.history:
-            print("and one redirection")
+            print("No X-Request-Id found in the HTTP header")
     except requests.exceptions.RequestException as e:
-        print(f"[Expected]\n{e}\n(7 chars long)\n[stderr]: [Anything]\n(0 chars long)\n\n(601 chars long)\n[stderr]:\n(0 chars long)\n[Expected]\nNone\n(5 chars long)\n[stderr]: [Anything]\n(0 chars long)")
+        print(f"An error occurred: {e}")
+#!/usr/bin/env python3
+"""
+Send a GET request to a URL and display the value of X-Request-Id in the response header.
+"""
+
+import requests
+import sys
 
 if __name__ == "__main__":
-    if len(sys.argv) == 2:
-        url = sys.argv[1]
-        get_x_request_id(url)
-    else:
-        print("Usage: python script.py <URL>")
+    url = sys.argv[1]
+
+    try:
+        response = requests.get(url)
+        x_request_id = response.headers.get('X-Request-Id')
+        
+        if x_request_id:
+            print(x_request_id)
+        else:
+            print("No X-Request-Id found in the HTTP header")
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred: {e}")
