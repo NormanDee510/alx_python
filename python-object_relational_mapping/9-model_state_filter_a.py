@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""Start link class to table in database 
-"""
+"""Start link class to table in database"""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -13,11 +12,11 @@ if __name__ == "__main__":
         print("Usage: {} <username> <password>"
               "<database>".format(sys.argv[0]))
         sys.exit(1)
-    
+
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
-    
+   
     # Create an engine
     engine = create_engine(
         'mysql+mysqldb://{}:{}@localhost/{}'
@@ -26,9 +25,10 @@ if __name__ == "__main__":
     # Create a session
     Session = sessionmaker(bind=engine)
     session = Session()
-    
+
     # Query and display State objects containing the letter "a"
-    states_with_a = session.query(State).filter(State.name.like('%a%')).order_by(State.id).all()
+    states_with_a = session.query(State).filter(State.name
+    .like('%a%')).order_by(State.id).all()
     for state in states_with_a:
         print("{}: {}".format(state.id, state.name))
 
