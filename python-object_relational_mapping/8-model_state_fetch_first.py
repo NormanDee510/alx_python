@@ -21,11 +21,11 @@ if __name__ == "__main__":
     engine = create_engine(
         'mysql+mysqldb://{}:{}@localhost/{}'
         .format(username, password, database), pool_pre_ping=True)
-    
+  
     # Create a session
     Session = sessionmaker(bind=engine)
     session = Session()
-    
+
     # Query and display the first State object
     first_state = session.query(State).order_by(State.id).first()
     if first_state:
