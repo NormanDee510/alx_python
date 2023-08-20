@@ -40,9 +40,8 @@ def get_states(username, password, database):
     db.close()
 
 if __name__ == "__main__":
-    """
-    Main entry point of the script.
-    """
+    """ Main entry point of the script."""
+    
     # Check for correct number of arguments
     if len(sys.argv) != 4:
         print("Usage: {} <username> <password> <database>".format(sys.argv[0]))
