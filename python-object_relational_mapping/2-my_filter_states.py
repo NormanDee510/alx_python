@@ -6,7 +6,7 @@ import MySQLdb
 def my_filter_states(username, password, database, state_name):
     # Connect to the MySQL server
     db = MySQLdb.connect(
-    host="localhost", port=3306, user=username, passwd=password, db=database)
+        host="localhost", port=3306, user=username, passwd=password, db=database)
 
     # Create a cursor
     cursor = db.cursor()
@@ -34,7 +34,7 @@ if __name__ == "__main__":
         print("Usage: {} <username> <password>"
               "<database> <state_name>".format(sys.argv[0]))
         sys.exit(1)
-    
+
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
