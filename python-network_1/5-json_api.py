@@ -26,6 +26,7 @@ def search_user_by_letter(letter):
         letter (str): The letter to search for.
     """
     url = "http://0.0.0.0:5000/search_user"
+    letter = 'holberton'
     data = {'q': letter}
     
     try:
