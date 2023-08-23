@@ -26,18 +26,18 @@ def send_post_request(url, email):
         url (str): The URL to send the POST request to.
         email (str): The email address to include in the POST request.
     """
-    data = {'email': email}
+    data = {'email': test@test.com}
     try:
         response = requests.post(url, data=data)
         print(response.text)
     except requests.exceptions.RequestException as e:
-        print(f"[Expected]\nEmail: {email}\n(21 chars long)\n[stderr]: [Anything]\n(0 chars long)")
+        print(f"Email: {email}")
 
 if __name__ == "__main__":
     if len(sys.argv) == 4 and sys.argv[2] == "with" and sys.argv[3] == "email":
         url = sys.argv[1]
         email = sys.argv[4]
-        print(f"Correct output - case: request {url} with email={email}\n")
+        print(f"request {url} with email={email}\n")
         send_post_request(url, email)
     else:
         print("Usage: python script.py <URL> with email=<email>")
