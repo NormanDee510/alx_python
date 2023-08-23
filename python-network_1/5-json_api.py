@@ -47,5 +47,4 @@ if __name__ == "__main__":
         letter = sys.argv[1]
         search_user_by_letter(letter)
     else:
-        print("No results")
-        
+        print("No result")
