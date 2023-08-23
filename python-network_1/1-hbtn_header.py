@@ -16,6 +16,6 @@ if __name__ == "__main__":
         if x_request_id:
             print(x_request_id)
         else:
-            print("No X-Request-Id found in the HTTP header")
+            print("None")
     except requests.exceptions.RequestException as e:
         print(f"An error occurred: {e}")
