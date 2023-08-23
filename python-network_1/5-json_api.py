@@ -47,4 +47,5 @@ if __name__ == "__main__":
         letter = sys.argv[1]
         search_user_by_letter(letter)
     else:
-        print("Usage: python script.py <letter>")
+        print("No results")
+        
