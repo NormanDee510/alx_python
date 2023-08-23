@@ -10,7 +10,7 @@ def send_post_request(url, email):
         url (str): The URL to send the POST request to.
         email (str): The email address to include in the POST request.
     """
-    email = 'hr@holbertonschool.com'
+    email = 'test@test.com'
     data = {'email': email}
     try:
         response = requests.post(url, data=data)
