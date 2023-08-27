@@ -1,5 +1,5 @@
 from flask import Flask
-
+"""A script that starts a Flask web application"""
 app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
