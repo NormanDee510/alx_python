@@ -9,6 +9,8 @@ from flask import Flask
 app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
+
+
 def hello_hbnb():
     """
     Route handler for the root URL.
@@ -17,6 +19,8 @@ def hello_hbnb():
     return "Hello HBNB!"
 
 @app.errorhandler(404)
+
+
 def page_not_found(error):
     """
     Error handler for 404 (Not Found) errors.
