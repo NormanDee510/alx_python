@@ -75,8 +75,9 @@ def number_odd_or_even(n):
     Displays an HTML page indicating whether the number n is even or odd.
     """
     odd_or_even = "odd" if n % 2 != 0 else "even"
-    return render_template('6-number_odd_or_even.html',
-     n=n, odd_or_even=odd_or_even)
+    return render_template(
+        '6-number_odd_or_even.html',
+          n=n, odd_or_even=odd_or_even)
 
 
 @app.errorhandler(404)
