@@ -61,7 +61,6 @@ def number(n):
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
 def number_template(n):
-    n=1
     """
     Route handler for the /number_template/<n> URL.
     Displays an HTML page with the number n.
