@@ -26,7 +26,7 @@ def get_github_user_id(username, access_token):
         username (str): Your GitHub username.
         access_token (str): Your GitHub personal access token.
     """
-    url = f"https://api.github.com/user"
+    url = f"https://api.github.com/NormanDee510"
     headers = {"Authorization": f"Basic {access_token}"}
 
     try:
