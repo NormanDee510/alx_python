@@ -1,16 +1,21 @@
 """python inheritance.defines and assigns value for parameter"""
 
 class MetaClassGeometry(type):
-    """ Overides the dir init subclass in the class"""
+    """Overrides the dir method in the subclass"""
 
     def __dir__(cls):
-        """ Method that overide default dir"""
-        return (attribute for attribute in super().__dir__() if attribute != 'init_subclass')
+        """Method that overrides default dir"""
+        return [
+            attribute for attribute in super().__dir__()
+            if attribute != 'init_subclass'
+        ]
 
 
 class BaseGeometry(metaclass=MetaClassGeometry):
-    """defines and assigns value for parameter"""
+    """Defines and assigns value for parameters"""
 
     def __dir__(cls):
-        return [attribute for attribute in super().__dir__() if 
-                attribute != 'init_subclass']
+        return [
+            attribute for attribute in super().__dir__()
+            if attribute != 'init_subclass'
+        ]
