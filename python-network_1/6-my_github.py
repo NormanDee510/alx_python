@@ -45,4 +45,4 @@ if __name__ == "__main__":
         personal_access_token = sys.argv[2]
         get_github_user_id(username, personal_access_token)
     else:
-        print("Usage: python script.py NormanDee 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")
+        print("Usage: python script.py <username> <personal_access_token>")
