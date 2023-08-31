@@ -25,7 +25,7 @@ def search_user_by_letter(letter):
             user = response_json[0]
             print(f"[{user['id']}] {user['name']}")
         elif not response_json:
-            print("No result")
+            print("Not a valid JSON")
         else:
             print("Not a valid JSON")
     except requests.exceptions.RequestException as e:
@@ -36,4 +36,4 @@ if __name__ == "__main__":
         letter = sys.argv[1]
         search_user_by_letter(letter)
     else:
-        print("Not a valid JSON")
+        print("No result")
