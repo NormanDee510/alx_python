@@ -19,8 +19,3 @@ class BaseGeometry(metaclass=MetaClassGeometry):
             attribute for attribute in super().__dir__()
             if attribute != 'init_subclass'
         ]
-
-
-# Testing the code
-print(dir(BaseGeometry))
-
