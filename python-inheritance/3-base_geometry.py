@@ -7,7 +7,7 @@ class MetaClassGeometry(type):
         """Method that overrides default dir"""
         return [
             attribute for attribute in super().__dir__()
-            if attribute != 'init_subclass'
+            if attribute != '__init_subclass__'
         ]
 
 
@@ -17,5 +17,5 @@ class BaseGeometry(metaclass=MetaClassGeometry):
     def __dir__(cls):
         return [
             attribute for attribute in super().__dir__()
-            if attribute != 'init_subclass'
+            if attribute != '__init_subclass__'
         ]
