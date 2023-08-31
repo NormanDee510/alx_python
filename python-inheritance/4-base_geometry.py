@@ -1,3 +1,8 @@
+"""python inheritance.
+
+defines and assigns value for parameter
+
+"""
 class MetaGeometry(type):
     """This class overrides the dir init subclass in the class"""
 
