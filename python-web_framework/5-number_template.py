@@ -7,6 +7,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+
 @app.route('/', strict_slashes=False)
 def hello_hbnb():
     """
@@ -15,6 +16,7 @@ def hello_hbnb():
     """
     return "Hello HBNB!"
 
+
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
     """
@@ -22,6 +24,7 @@ def hbnb():
     Returns a message "HBNB".
     """
     return "HBNB"
+
 
 @app.route('/c/<text>', strict_slashes=False)
 def c_text(text):
@@ -32,6 +35,7 @@ def c_text(text):
     """
     text = text.replace('_', ' ')
     return f"C {text}"
+
 
 @app.route('/python/', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
@@ -45,6 +49,7 @@ def python_text(text="is cool"):
     text = text.replace('_', ' ')
     return f"Python {text}"
 
+
 @app.route('/number/<int:n>', strict_slashes=False)
 def number(n):
     """
@@ -53,13 +58,15 @@ def number(n):
     """
     return f"{n} is a number"
 
-@app.route('/number_template/1', strict_slashes=False)
-def number_template():
+
+@app.route('/number_template/<int:n>', strict_slashes=False)
+def number_template(n):
     """
-    Route handler for the /number_template/1 URL.
-    Displays an HTML page with the number 1.
+    Route handler for the /number_template/<n> URL.
+    Displays an HTML page with the number n.
     """
-    return render_template('number_template.html', n=1)
+    return render_template('5-number.html', n=n)
+
 
 @app.errorhandler(404)
 def page_not_found(error):
