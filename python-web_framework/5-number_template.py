@@ -65,7 +65,7 @@ def number_template(n):
     Route handler for the /number_template/<n> URL.
     Displays an HTML page with the number n.
     """
-    return render_template('5-number.html', n=n)
+    return render_template('5-number.html', number = n)
 
 
 @app.errorhandler(404)
