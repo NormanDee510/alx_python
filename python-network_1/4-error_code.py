@@ -18,24 +18,18 @@ Example:
 import requests
 import sys
 
-def fetch_and_display_response(url):
-    """
-    Send a request to a URL, display response body, and handle error codes.
 
-    Args:
-        url (str): The URL to send the request to.
-    """
+def main():
+    url = sys.argv[1]
+    
     response = requests.get(url)
-    if response.status_code >= 400:
-        print(f"Error code: {response.status_code}")
+    responsebody = response.text
+    
+    if response.status_code > 400:
+        print("Error code: {}".format(response.status_code))
     else:
-        print(response.text)
-
-if __name__ == "__main__":
-    if len(sys.argv) == 2:
-        url = sys.argv[1]
-        fetch_and_display_response(url)
-    else:
-        print("Usage: python script.py <URL>")
+        print(responsebody)
+if __name__=="__main__":
+    main()
 
         
