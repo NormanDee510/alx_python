@@ -20,8 +20,8 @@ def list_states(username, password, database_name):
         cursor.execute(query)
         rows = cursor.fetchall()
         for row in rows:
-            print(row)        
-        cursor.close()
+            print(row)
+            cursor.close()
         db.close()
 
     except MySQLdb.Error as e:
