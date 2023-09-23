@@ -16,8 +16,7 @@ def list_states(username, password, database_name):
         cursor = db.cursor()
 
         # Execute the SQL query to retrieve states
-        query = "SELECT * FROM states "
-        "where BINARY name like 'N%' ORDER BY states.id ASC"
+        query = "SELECT * FROM states where BINARY name like 'N%' ORDER BY states.id ASC"
         cursor.execute(query)
         rows = cursor.fetchall()
         for row in rows:
