@@ -18,31 +18,20 @@ Example:
 import requests
 import sys
 
-def get_github_user_id(username, access_token):
-    """
-    Use GitHub API with Basic Authentication to display user id.
+def main():
+    username = sys.argv[1]
+    password = sys.argv[2]
 
-    Args:
-        username (str): Your GitHub username.
-        access_token (str): Your GitHub personal access token.
-    """
-    url = f"https://api.github.com/NormanDee510"
-    headers = {"Authorization": f"Basic {access_token}"}
+    url = "https://api.github.com/user"
 
-    try:
-        response = requests.get(url, headers=headers)
-        if response.status_code == 200:
-            user_data = response.json()
-            print(user_data.get("id"))
-        else:
-            print("None")
-    except requests.exceptions.RequestException as e:
-        print("Error:", e)
+    response = requests.get(url, auth=(username, password))
+
+    if response.status_code == 200:
+        user_data = response.json()
+        user_id = user_data['id']
+        print(user_id)
+    else:
+        print("None")
 
 if __name__ == "__main__":
-    if len(sys.argv) == 3:
-        username = sys.argv[1]
-        personal_access_token = sys.argv[2]
-        get_github_user_id(username, personal_access_token)
-    else:
-        print("Usage: python script.py <username> <personal_access_token>")
+    main()
