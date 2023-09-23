@@ -24,8 +24,8 @@ try:
     # Create a cursor object
     cursor = db.cursor()
 
-    # Execute the SQL query to select states starting with 'N'
-    query = "SELECT * FROM states WHERE name LIKE '^[N]' ORDER BY id"
+    # Execute the SQL query to select states starting with a capital letter 'N'
+    query = "SELECT * FROM states WHERE name REGEXP '^[N]' ORDER BY id"
     cursor.execute(query)
 
     # Fetch and print the results
