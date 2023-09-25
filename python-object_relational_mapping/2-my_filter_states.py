@@ -16,7 +16,8 @@ def my_filter_states(username, password, database, state_name):
     cursor = db.cursor()
 
     # Create the SQL query with user input (state name)
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+    query = ("SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+             "COLLETE utf8mb4_bin ORDER BY states.id")
 
     # Execute the query to retrieve states matching the state name
     cursor.execute(query, (state_name,))
