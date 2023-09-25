@@ -11,7 +11,6 @@ def my_filter_states(username, password, database, state_name):
         user=username,
         passwd=password,
         db=database
-        charset="utf8"
     )
     # Create a cursor
     cursor = db.cursor()
