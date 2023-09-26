@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 import sys
 import MySQLdb
 
@@ -16,12 +17,9 @@ def my_filter_states(username, password, database, state_name):
     cursor = db.cursor()
 
     # Create the SQL query with user input (state name)
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-
-    # Execute the query to retrieve states matching the state name
-    cursor.execute(query, (state_name,))
-
-    # Fetch all the results
+    query = "SELECT * FROM states WHERE name = %s ORDER BY id"
+   
+    cursor.execute(query, (state_name,))   
     results = cursor.fetchall()
 
     # Print the results
