@@ -24,8 +24,8 @@ def main():
 
     # Execute the SQL query to select states starting with a capital letter 'N'
     curs.execute("SELECT * FROM states "
-                 "WHERE name LIKE 'N%' AND "  # Corrected AND syntax
-                 "BINARY name NOT LIKE 'n%' "  # Added space before AND
+                 "WHERE name LIKE 'N%' AND "  
+                 "BINARY name NOT LIKE 'n%' "  
                  "ORDER BY states.id ASC")
 
     # Fetch and print the results
