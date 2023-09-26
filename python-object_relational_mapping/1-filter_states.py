@@ -1,41 +1,41 @@
+#!/usr/bin/python3
+# This script is meant to filter states names that begin with letter N
+# Imports module MySQLdb
 import MySQLdb
 import sys
 
-# Check if the correct number of arguments is provided
-if len(sys.argv) != 4:
-    sys.exit("Usage: {} username password database".format(sys.argv[0]))
+def main():
+    database_name = sys.argv[3]
+    username = sys.argv[1]
+    password = sys.argv[2]
 
-# Extract command line arguments
-username = sys.argv[1]
-password = sys.argv[2]
-database = sys.argv[3]
-
-try:
     # Connect to the MySQL database
-    db = MySQLdb.connect(
-        host="localhost",
-        port=3306,
+    database = MySQLdb.connect(
+        host='localhost',  # Corrected 'localHost' to 'localhost'
         user=username,
         passwd=password,
-        db=database,
-        charset="utf8"
+        db=database_name,
+        port=3306
     )
 
     # Create a cursor object
-    cursor = db.cursor()
+    curs = database.cursor()
 
     # Execute the SQL query to select states starting with a capital letter 'N'
-    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id;")
+    curs.execute("SELECT * FROM states "
+                 "WHERE name LIKE 'N%' AND "  # Corrected AND syntax
+                 "BINARY name NOT LIKE 'n%' "  # Added space before AND
+                 "ORDER BY states.id ASC")
 
     # Fetch and print the results
-    results = cursor.fetchall()
-    for row in results:
+    rows = curs.fetchall()
+    for row in rows:
         print(row)
 
-except MySQLdb.Error as e:
-    sys.exit("MySQL Error: {}".format(e))
+    curs.close()
 
-finally:
     # Close the database connection
-    if db:
-        db.close()
+    database.close()
+
+if __name__ == "__main__":
+    main()
