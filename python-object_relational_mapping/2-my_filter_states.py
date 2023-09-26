@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# This script is meant to filter states where names matches argument
+# This script is meant to filter states where names match the argument
 # Imports module MySQLdb
 import MySQLdb
 import sys
@@ -11,9 +11,9 @@ def main():
     password = sys.argv[2]
     name_search = sys.argv[4]
 
-     # Connect to the MySQL database
+    # Connect to the MySQL database
     database = MySQLdb.connect(
-        host='localhost',  # Corrected 'localHost' to 'localhost'
+        host='localhost',
         user=username,
         passwd=password,
         db=database_name,
@@ -23,14 +23,13 @@ def main():
     # Create a cursor object
     curs = database.cursor()
 
-    
     # Execute the SQL query to select states starting with a capital letter 'N'
     curs.execute("SELECT * FROM states "
-                 "WHERE name = '{}' AND " 
-                 "name LIKE 'N%' AND " 
-                 "BINARY name NOT LIKE 'n%' "  
+                 "WHERE name = '{}' AND "
+                 "name LIKE 'N%' AND "
+                 "BINARY name NOT LIKE 'n%' "
                  "ORDER BY id ASC".format(name_search))
-    
+
     # Fetch and print the results
     rows = curs.fetchall()
     for row in rows:
@@ -38,7 +37,5 @@ def main():
 
     curs.close()
 
-
-    if __name__ == "__main__":
-        main()
-    
+if __name__ == "__main__":
+    main()
