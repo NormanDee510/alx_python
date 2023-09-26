@@ -4,6 +4,7 @@
 import MySQLdb
 import sys
 
+
 def main():
     database_name = sys.argv[3]
     username = sys.argv[1]
