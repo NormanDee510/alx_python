@@ -2,9 +2,7 @@ import csv
 import requests
 import sys
 
-
-def get_employee_info(employee_id):
-    """
+"""
     Retrieve employee information and TODO list, then export it to a CSV file.
 
     Args:
@@ -12,7 +10,10 @@ def get_employee_info(employee_id):
 
     Returns:
         None
-    """
+"""
+
+def get_employee_info(employee_id):
+   
     # Define the base URL for the API
     base_url = "https://jsonplaceholder.typicode.com"
 
