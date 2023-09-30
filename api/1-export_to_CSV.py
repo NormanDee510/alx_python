@@ -2,7 +2,9 @@ import csv
 import requests
 import sys
 
-"""
+
+def get_employee_info(employee_id):
+    """
     Retrieve employee information and TODO list, then export it to a CSV file.
 
     Args:
@@ -10,10 +12,7 @@ import sys
 
     Returns:
         None
-"""
-
-def get_employee_info(employee_id):
-   
+    """
     # Define the base URL for the API
     base_url = "https://jsonplaceholder.typicode.com"
 
@@ -33,15 +32,20 @@ def get_employee_info(employee_id):
         csv_writer = csv.writer(csv_file, quoting=csv.QUOTE_MINIMAL)
         csv_writer.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
 
+        # Write TODO list data to the CSV file
         for task in todos_data:
             csv_writer.writerow([employee_id, employee_data['username'], task['completed'], task['title']])
 
     print(f"Data exported to {csv_filename}")
 
 if __name__ == "__main__":
+    # Check if the correct number of command-line arguments is provided
     if len(sys.argv) != 2:
         print("Usage: python export_to_CSV.py <employee_id>")
         sys.exit(1)
 
+    # Parse the employee ID from the command-line argument
     employee_id = int(sys.argv[1])
+
+    # Call the function to retrieve and export employee data
     get_employee_info(employee_id)
