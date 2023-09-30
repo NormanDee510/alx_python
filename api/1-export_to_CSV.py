@@ -3,10 +3,8 @@ import requests
 import sys
 """
     Retrieve employee information and TODO list, then export it to a CSV file.
-
     Args:
         employee_id (int): The ID of the employee for whom to retrieve information.
-
     Returns:
         None
     """
