@@ -1,8 +1,18 @@
+import csv
 import requests
 import sys
-import csv
+
 
 def get_employee_info(employee_id):
+    """
+    Retrieve employee information and TODO list, then export it to a CSV file.
+
+    Args:
+        employee_id (int): The ID of the employee for whom to retrieve information.
+
+    Returns:
+        None
+    """
     # Define the base URL for the API
     base_url = "https://jsonplaceholder.typicode.com"
 
