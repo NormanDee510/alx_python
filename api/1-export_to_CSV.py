@@ -1,6 +1,7 @@
+import csv
 import requests
 import sys
-import csv
+
 
 def check_task_formatting(title):
     """
