@@ -1,13 +1,6 @@
 import requests
 import sys
 
-def check_task_formatting(title):
-    # Check if the task title contains at least 10 characters
-    if len(title) >= 10:
-        return "OK"
-    else:
-        return "Formatting: Incorrect"
-
 def get_employee_info(employee_id):
     # Define the base URL for the API
     base_url = "https://jsonplaceholder.typicode.com"
@@ -30,10 +23,8 @@ def get_employee_info(employee_id):
     # Print the employee TODO list progress
     print(f"Employee {employee_data['name']} is done with tasks({num_completed_tasks}/{total_tasks}):")
 
-    # Print the titles of completed tasks with formatting check
-    for i, task in enumerate(completed_tasks, 1):
-        formatting_check = check_task_formatting(task['title'])
-        print(f"Task {i} {formatting_check}")
+    # Print the titles of completed tasks
+    for task in completed_tasks:
         print(f"    {task['title']}")
 
 if __name__ == "__main__":
@@ -43,4 +34,3 @@ if __name__ == "__main__":
 
     employee_id = int(sys.argv[1])
     get_employee_info(employee_id)
-
