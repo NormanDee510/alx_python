@@ -28,7 +28,15 @@ def get_employee_info(employee_id):
     Outputs:
         CSV file: Records all tasks owned by the employee in the format:
                   "USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"
+    
+    Raises:
+        ValueError: If the provided employee_id is not a valid integer.
     """
+    try:
+        employee_id = int(employee_id)
+    except ValueError:
+        raise ValueError("employee_id must be a valid integer.")
+
     # Define the base URL for the API
     base_url = "https://jsonplaceholder.typicode.com"
 
@@ -53,7 +61,7 @@ def get_employee_info(employee_id):
     # Print the titles of completed tasks with formatting check
     for i, task in enumerate(completed_tasks, 1):
         formatting_check = check_task_formatting(task['title'])
-        print(f"Task {i} {formatting_check}")
+        print(f"Task {i} Formatting: {formatting_check}")
         print(f"    {task['title']}")
 
     # Export data to a CSV file
@@ -75,5 +83,5 @@ if __name__ == "__main__":
         print("Usage: python gather_data_from_an_API.py <employee_id>")
         sys.exit(1)
 
-    employee_id = int(sys.argv[1])
+    employee_id = sys.argv[1]
     get_employee_info(employee_id)
