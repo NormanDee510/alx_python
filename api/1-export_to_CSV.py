@@ -1,7 +1,7 @@
 import csv
+import logging
 import requests
 import sys
-import logging
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
