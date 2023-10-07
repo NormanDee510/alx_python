@@ -44,8 +44,7 @@ def get_employee_info(employee_id):
     employee_url = f"{base_url}/users/{employee_id}"
     response = requests.get(employee_url)
     employee_data = response.json()
-
-    # Make a GET request to get the employee's TODO list
+ 
     todos_url = f"{base_url}/users/{employee_id}/todos"
     response = requests.get(todos_url)
     todos_data = response.json()
@@ -54,8 +53,7 @@ def get_employee_info(employee_id):
     completed_tasks = [task for task in todos_data if task['completed']]
     num_completed_tasks = len(completed_tasks)
     total_tasks = len(todos_data)
-
-    # Print the employee TODO list progress
+ 
     print(f"Employee {employee_data['name']} is done with tasks({num_completed_tasks}/{total_tasks}):")
 
     # Print the titles of completed tasks with formatting check
