@@ -1,36 +1,31 @@
+'''
+A python script that uses the REST API for a given employee ID
+returns information about his/her TODO list progress.
+'''
+
+import json
 import requests
 import sys
 
-def get_employee_info(employee_id):
-    # Define the base URL for the API
-    base_url = "https://jsonplaceholder.typicode.com"
-
-    # Make a GET request to get employee details
-    employee_url = f"{base_url}/users/{employee_id}"
-    response = requests.get(employee_url)
-    employee_data = response.json()
-
-    # Make a GET request to get the employee's TODO list
-    todos_url = f"{base_url}/users/{employee_id}/todos"
-    response = requests.get(todos_url)
-    todos_data = response.json()
-
-    # Calculate the number of completed tasks and total tasks
-    completed_tasks = [task for task in todos_data if task['completed']]
-    num_completed_tasks = len(completed_tasks)
-    total_tasks = len(todos_data)
-
-    # Print the employee TODO list progress
-    print(f"Employee {employee_data['name']} is done with tasks({num_completed_tasks}/{total_tasks}):")
-
-    # Print the titles of completed tasks
-    for task in completed_tasks:
-        print(f"    {task['title']}")
-
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python gather_data_from_an_API.py <employee_id>")
-        sys.exit(1)
-
-    employee_id = int(sys.argv[1])
-    get_employee_info(employee_id)
+    employee_id = sys.argv[1]
+    
+    # Request employee details and todo list from the API
+    response_user = requests.get(f"https://jsonplaceholder.typicode.com/users/{employee_id}")
+    response_todos = requests.get(f"https://jsonplaceholder.typicode.com/users/{employee_id}/todos")
+    
+    if response_user.status_code == 200 and response_todos.status_code == 200:
+        user_data = json.loads(response_user.text)
+        todos_data = json.loads(response_todos.text)
+        
+        employee_name = user_data.get("name")
+        total_tasks = len(todos_data)
+        completed_tasks = sum(1 for task in todos_data if task["completed"])
+        
+        print(f"Employee {employee_name} is done with tasks({completed_tasks}/{total_tasks}):")
+        
+        for task in todos_data:
+            if task["completed"]:
+                print(f"\t {task['title']}")
+    else:
+        print("Failed to retrieve data. Please check the employee ID and API availability.")
